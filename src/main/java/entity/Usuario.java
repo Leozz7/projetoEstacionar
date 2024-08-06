@@ -1,2 +1,59 @@
-package entity;public class usuario {
+package entity;
+
+public class Usuario {
+
+    private Integer id;
+    private String nome;
+    private String carro;
+    private String entrada;
+    private String saida;
+    private String cpf;
+
+    public String getSaida() {
+        return saida;
+    }
+
+    public void setSaida(String saida) {
+        this.saida = saida;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getEntrada() {
+        return entrada;
+    }
+
+    public void setEntrada(String entrada) {
+        this.entrada = entrada;
+    }
+
+    public String getCarro() {
+        return carro;
+    }
+
+    public void setCarro(String carro) {
+        this.carro = carro;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

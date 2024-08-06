@@ -1,48 +1,78 @@
 package com.projeto.Estacionamento;
 
 import entity.Usuario;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 import java.util.Scanner;
 
-public class adicionarCarro {
+public class Main {
     public static void main(String[] args) {
 
         Calendar c = Calendar.getInstance();
         Scanner scanner = new Scanner(System.in);
-        Usuario u = new Usuario();
         String data;
         String hora;
         String nome;
         String carro;
         String horario;
         String cpf;
+        int opcao;
 
-        System.out.println("Qual nome da pessoa: ");
-        nome = scanner.nextLine();
-        u.setNome(nome);
+        System.out.format("[1]Adiciona Carro \n[2]Retirar Carro \n[3] Sair\n");
+        opcao = scanner.nextInt();
 
-        System.out.println("Qual o CPF dele : ");
-        cpf = scanner.nextLine();
-        u.setCpf(cpf);
+        do {
 
-        System.out.println("Qual o modelo do carro: ");
-        carro = scanner.nextLine();
-        u.setCarro(carro);
+            if (Objects.equals(opcao, 1)) {
+                Usuario u = new Usuario();
 
-        Date dataHora = new Date();
+                System.out.println("Qual nome da pessoa: ");
+                nome = scanner.next();
+                u.setNome(nome);
 
-        data = new SimpleDateFormat("dd/MM/yyyy").format(dataHora);
-        hora = new SimpleDateFormat("HH:mm:ss").format(dataHora);
+                System.out.println("Qual o CPF dele(a) : ");
+                cpf = scanner.next();
+                u.setCpf(cpf);
 
-        horario = data + " " + hora;
+                System.out.println("Qual o modelo do carro: ");
+                carro = scanner.next();
+                u.setCarro(carro);
 
-        System.out.println(horario);
+                Date dataHora = new Date();
 
-        u.setHorario(horario);
+                data = new SimpleDateFormat("dd/MM/yyyy").format(dataHora);
+                hora = new SimpleDateFormat("HH:mm:ss").format(dataHora);
 
-        new UsuarioDAO().cadastraCarro(u);
+                horario = data + " " + hora;
+
+                System.out.println(horario);
+
+                u.setEntrada(horario);
+
+                new UsuarioDAO().cadastraCarro(u);
+
+            } else if (Objects.equals(opcao, 2)) {
+                Usuario u = new Usuario();
+
+                System.out.println("Qual nome da pessoa: ");
+                nome = scanner.next();
+                u.setNome(nome);
+
+                Date dataHora = new Date();
+
+                data = new SimpleDateFormat("dd/MM/yyyy").format(dataHora);
+                hora = new SimpleDateFormat("HH:mm:ss").format(dataHora);
+
+                horario = data + " " + hora;
+
+                System.out.println(horario);
+
+                u.setSaida(horario);
+
+                new UsuarioDAO().retirarCarro(u);
+            }
+        } while (Objects.equals(opcao, 3));
     }
 }
