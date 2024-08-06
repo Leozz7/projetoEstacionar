@@ -2,7 +2,6 @@ package com.projeto.Estacionamento;
 
 import entity.Usuario;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Scanner;
@@ -10,7 +9,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Calendar c = Calendar.getInstance();
         Scanner scanner = new Scanner(System.in);
         String data;
         String hora;
