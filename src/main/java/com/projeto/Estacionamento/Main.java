@@ -52,9 +52,9 @@ public class Main {
             } else if (Objects.equals(opcao, 2)) {
                 Usuario u = new Usuario();
 
-                System.out.println("Qual nome da pessoa: ");
-                nome = scanner.next();
-                u.setNome(nome);
+                System.out.println("Qual o nome da pessoa: ");
+
+                u.setNome(scanner.nextLine());
 
                 Date dataHora = new Date();
 
