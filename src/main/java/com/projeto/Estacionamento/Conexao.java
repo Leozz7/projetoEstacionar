@@ -6,7 +6,6 @@ import java.sql.SQLException;
 
 public class Conexao {
     private static Connection conn;
-
     public static Connection getConexao() throws SQLException {
         if (conn == null || conn.isClosed()) {
             try {

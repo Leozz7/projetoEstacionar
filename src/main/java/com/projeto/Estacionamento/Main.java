@@ -20,23 +20,21 @@ public class Main {
 
         System.out.format("[1]Adiciona Carro \n[2]Retirar Carro \n[3] Sair\n");
         opcao = scanner.nextInt();
+        scanner.nextLine();
 
         do {
 
             if (Objects.equals(opcao, 1)) {
                 Usuario u = new Usuario();
 
-                System.out.println("Qual nome da pessoa: ");
-                nome = scanner.next();
-                u.setNome(nome);
+                System.out.println("Qual o nome da pessoa: ");
+                u.setNome(scanner.nextLine());
 
-                System.out.println("Qual o CPF dele(a) : ");
-                cpf = scanner.next();
-                u.setCpf(cpf);
+                System.out.println("Qual o CPF dele(a): ");
+                u.setCpf(scanner.nextLine());
 
                 System.out.println("Qual o modelo do carro: ");
-                carro = scanner.next();
-                u.setCarro(carro);
+                u.setCarro(scanner.nextLine());
 
                 Date dataHora = new Date();
 
@@ -59,6 +57,7 @@ public class Main {
                 u.setNome(nome);
 
                 Date dataHora = new Date();
+
 
                 data = new SimpleDateFormat("dd/MM/yyyy").format(dataHora);
                 hora = new SimpleDateFormat("HH:mm:ss").format(dataHora);
