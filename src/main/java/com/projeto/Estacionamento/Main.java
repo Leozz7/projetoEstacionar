@@ -18,11 +18,11 @@ public class Main {
         String cpf;
         int opcao;
 
-        System.out.format("[1]Adiciona Carro \n[2]Retirar Carro \n[3] Sair\n");
-        opcao = scanner.nextInt();
-        scanner.nextLine();
-
         do {
+            System.out.format("[1]Adiciona Carro \n[2]Retirar Carro \n[3] Sair\n");
+            opcao = scanner.nextInt();
+            scanner.nextLine();
+
 
             if (Objects.equals(opcao, 1)) {
                 Usuario u = new Usuario();
