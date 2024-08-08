@@ -8,6 +8,15 @@ public class Usuario {
     private String entrada;
     private String saida;
     private String cpf;
+    private int verificar;
+
+    public int getVerificar() {
+        return verificar;
+    }
+
+    public void setVerificar(int verificar) {
+        this.verificar = verificar;
+    }
 
     public String getSaida() {
         return saida;

@@ -3,6 +3,7 @@ package com.projeto.Estacionamento;
 import entity.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UsuarioDAO {
@@ -23,17 +24,18 @@ public class UsuarioDAO {
             e.printStackTrace();
         }
     }
-    public void verificar(Usuario u) {
-        String sql = "SELECT COUNT(NOME) FROM carros WHERE nome = ?";
-
+    public ResultSet verificar(Usuario u) {
+        String sql = "SELECT COUNT(NOME) FROM carros WHERE nome = ? GROUP BY nome";
         try (Connection conn = Conexao.getConexao();
          PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, u.getNome());
 
-            ps.executeUpdate();
+            return ps.executeQuery();
+
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
     }
 

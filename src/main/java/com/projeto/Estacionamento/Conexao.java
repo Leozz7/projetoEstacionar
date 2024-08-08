@@ -13,9 +13,11 @@ public class Conexao {
                 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/estacionamento", "root", "");
             } catch (Exception e) {
                 e.printStackTrace();
-                throw new SQLException("Erro ao conectar ao banco de dados.");
+                throw new SQLException("Erro ao conectar com o banco de dados");
             }
         }
         return conn;
     }
 }
+
+
