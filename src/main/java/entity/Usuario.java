@@ -2,7 +2,6 @@ package entity;
 
 public class Usuario {
 
-    private Integer id;
     private String nome;
     private String carro;
     private String entrada;
@@ -58,11 +57,4 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 }

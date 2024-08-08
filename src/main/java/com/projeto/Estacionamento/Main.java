@@ -12,10 +12,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String data;
         String hora;
-        String nome;
-        String carro;
         String horario;
-        String cpf;
 
         for (int opcao = 0; opcao != 3; ) {
             {
