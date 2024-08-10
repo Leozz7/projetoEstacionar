@@ -9,6 +9,24 @@ public class Usuario {
     private String cpf;
     private String placa;
     private int verificar;
+    private String trocar;
+    private String mudar;
+
+    public String getMudar() {
+        return mudar;
+    }
+
+    public void setMudar(String mudar) {
+        this.mudar = mudar;
+    }
+
+    public String getTrocar() {
+        return trocar;
+    }
+
+    public void setTrocar(String trocar) {
+        this.trocar = trocar;
+    }
 
     public String getPlaca() {
         return placa;

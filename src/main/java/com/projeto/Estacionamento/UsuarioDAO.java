@@ -54,4 +54,18 @@ public class UsuarioDAO {
             e.printStackTrace();
         }
     }
+
+    public void alterarDado(Usuario u) {
+        String sql = "UPDATE carros SET " + u.getTrocar() + " = ? WHERE cpf = ?";
+
+        try (Connection conn = Conexao.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql)){
+            ps.setString(1, u.getMudar());
+            ps.setString(2, u.getCpf());
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

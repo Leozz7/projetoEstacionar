@@ -11,8 +11,7 @@ public class Conexao {
         if (conn == null || conn.isClosed()) {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/estacionamento", "root" , "");
-
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/estacionamento", "root", "");
             } catch (Exception e) {
                 e.printStackTrace();
                 throw new SQLException("Erro ao conectar com o banco de dados");
