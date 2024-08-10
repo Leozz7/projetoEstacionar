@@ -16,7 +16,7 @@ public class Main {
 
         for (int opcao = 0; opcao != 3; ) {
             {
-                System.out.format("[1]Adiciona Carro \n[2]Retirar Carro \n[3] Sair\n");
+                System.out.format("[1]ADICIONAR CARRO \n[2]RETIRAR CARRO \n[3]SAIR\n");
                 opcao = scanner.nextInt();
                 scanner.nextLine();
 
@@ -35,6 +35,9 @@ public class Main {
                     System.out.println("Qual o modelo do carro: ");
                     u.setCarro(scanner.nextLine());
 
+                    System.out.println("Qual a placa do carro: ");
+                    u.setPlaca(scanner.nextLine());
+
                     Date dataHora = new Date();
 
                     data = new SimpleDateFormat("dd/MM/yyyy").format(dataHora);
@@ -51,9 +54,9 @@ public class Main {
                 } else if (Objects.equals(opcao, 2)) {
                     Usuario u = new Usuario();
 
-                    System.out.println("Qual o nome da pessoa: ");
+                    System.out.println("Qual a PLACA do carro: ");
 
-                    u.setNome(scanner.nextLine());
+                    u.setPlaca(scanner.nextLine());
 
                     Date dataHora = new Date();
 

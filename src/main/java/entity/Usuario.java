@@ -7,7 +7,16 @@ public class Usuario {
     private String entrada;
     private String saida;
     private String cpf;
+    private String placa;
     private int verificar;
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
 
     public int getVerificar() {
         return verificar;
