@@ -71,12 +71,13 @@ public class Main {
                 } else if (Objects.equals(opcao, 3)) {
                     Usuario u = new Usuario();
 
-                    System.out.println("Insira o CPF de quem você quer alterar : ");
-                    u.setCpf(scanner.next());
-
+                    System.out.println("O QUE ALTERAR? ");
                     System.out.println("[1]NOME \n[2]CPF \n[3]CARRO \n[4]PLACA \n[5]SAIR");
                     int opcao1 = scanner.nextInt();
                     scanner.nextLine();
+
+                    System.out.println("Insira o CPF de quem você quer alterar : ");
+                    u.setCpf(scanner.nextLine());
 
                     if (opcao1 == 1) {
                         u.setTrocar("nome");
