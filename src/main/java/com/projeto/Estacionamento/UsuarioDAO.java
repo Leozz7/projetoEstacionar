@@ -25,20 +25,6 @@ public class UsuarioDAO {
             e.printStackTrace();
         }
     }
-    public ResultSet verificar(Usuario u) {
-        String sql = "SELECT COUNT(NOME) FROM carros WHERE nome = ? GROUP BY nome";
-        try (Connection conn = Conexao.getConexao();
-         PreparedStatement ps = conn.prepareStatement(sql)) {
-
-            ps.setString(1, u.getNome());
-
-            return ps.executeQuery();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 
     public void retirarCarro(Usuario u) {
         String sql = "UPDATE carros SET saida = ? WHERE placa = ? AND saida IS NULL";

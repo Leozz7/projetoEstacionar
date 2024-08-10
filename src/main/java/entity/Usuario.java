@@ -8,7 +8,6 @@ public class Usuario {
     private String saida;
     private String cpf;
     private String placa;
-    private int verificar;
     private String trocar;
     private String mudar;
 
@@ -34,14 +33,6 @@ public class Usuario {
 
     public void setPlaca(String placa) {
         this.placa = placa;
-    }
-
-    public int getVerificar() {
-        return verificar;
-    }
-
-    public void setVerificar(int verificar) {
-        this.verificar = verificar;
     }
 
     public String getSaida() {
