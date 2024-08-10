@@ -41,7 +41,7 @@ public class UsuarioDAO {
     }
 
     public void retirarCarro(Usuario u) {
-        String sql = "UPDATE carros SET saida = ? WHERE placa = ?";
+        String sql = "UPDATE carros SET saida = ? WHERE placa = ? AND saida IS NULL";
 
         try (Connection conn = Conexao.getConexao();
              PreparedStatement ps = conn.prepareStatement(sql)) {
