@@ -1,10 +1,8 @@
 package com.projeto.Estacionamento;
 
 import entity.Usuario;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import java.sql.*;
 
 public class UsuarioDAO {
 
@@ -51,6 +49,29 @@ public class UsuarioDAO {
 
             ps.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void exibirTabela(Usuario u) {
+        String sql = "SELECT * FROM CARROS";
+        try (Connection conn = Conexao.getConexao();
+             Statement ps = conn.createStatement();
+             ResultSet rs = ps.executeQuery(sql)) {
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String nome = rs.getString("nome");
+                String cpf = rs.getString("cpf");
+                String carro = rs.getString("carro");
+                String placa = rs.getString("placa");
+                String entrada = rs.getString("entrada");
+                String saida = rs.getString("saida");
+
+                System.out.println(id + " | " + nome + " | " + cpf + " | " + carro + " | " +  placa + " | ENTRADA :" + entrada + " | SAÍDA :" +saida + " | ");
+                System.out.println();
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

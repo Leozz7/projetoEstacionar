@@ -22,4 +22,3 @@ public class Conexao {
 }
 //com.mysql.cj.jdbc.Driver
 //"jdbc:mysql://localhost:3306/estacionamento", "root", ""
-

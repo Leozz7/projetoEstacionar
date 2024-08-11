@@ -14,9 +14,9 @@ public class Main {
         String hora;
         String horario;
 
-        for (int opcao = 0; opcao != 4; ) {
+        for (int opcao = 0; opcao != 5; ) {
             {
-                System.out.format("[1]ADICIONAR CARRO \n[2]RETIRAR CARRO \n[3]ALTERAR UM DADO \n[4]SAIR\n");
+                System.out.format("[1]ADICIONAR CARRO \n[2]RETIRAR CARRO \n[3]ALTERAR UM DADO \n[4]EXIBIR CARROS CADASTRADOS\n[5]SAIR\n");
                 opcao = scanner.nextInt();
                 scanner.nextLine();
 
@@ -106,6 +106,10 @@ public class Main {
                     System.out.println(horario + "\n");
 
                     new UsuarioDAO().alterarDado(u);
+                } else if (Objects.equals(opcao, 4)) {
+                    Usuario u = new Usuario();
+
+                    new UsuarioDAO().exibirTabela(u);
                 }
             }
         }
