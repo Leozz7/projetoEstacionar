@@ -44,6 +44,7 @@ public class UsuarioDAO {
 
         try (Connection conn = Conexao.getConexao();
              PreparedStatement ps = conn.prepareStatement(sql)){
+
             ps.setString(1, u.getMudar());
             ps.setString(2, u.getCpf());
 
@@ -70,6 +71,34 @@ public class UsuarioDAO {
 
                 System.out.println(id + " | " + nome + " | " + cpf + " | " + carro + " | " +  placa + " | ENTRADA :" + entrada + " | SAÍDA :" +saida + " | ");
                 System.out.println();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void exibirUsuario(Usuario u) {
+        String sql = "SELECT * FROM CARROS WHERE " + u.getTrocar() + " = ?" ;
+
+        try (Connection conn = Conexao.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, u.getMudar());
+
+            try (ResultSet rs = ps.executeQuery()) {
+
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    String nome = rs.getString("nome");
+                    String cpf = rs.getString("cpf");
+                    String carro = rs.getString("carro");
+                    String placa = rs.getString("placa");
+                    String entrada = rs.getString("entrada");
+                    String saida = rs.getString("saida");
+
+                    System.out.println(id + " | " + nome + " | " + cpf + " | " + carro + " | " + placa + " | ENTRADA :" + entrada + " | SAÍDA :" + saida + " | ");
+                    System.out.println();
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

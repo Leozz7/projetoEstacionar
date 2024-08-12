@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class Conexao {
     private static Connection conn;
 
-    public static Connection getConexao() throws SQLException {
+    public static Connection getConexao() throws SQLException{
         if (conn == null || conn.isClosed()) {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");

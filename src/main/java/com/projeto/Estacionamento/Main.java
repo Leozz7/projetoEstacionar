@@ -107,9 +107,35 @@ public class Main {
 
                     new UsuarioDAO().alterarDado(u);
                 } else if (Objects.equals(opcao, 4)) {
-                    Usuario u = new Usuario();
+                    for (int opcao2 = 0; opcao2 != 3 ;) {
+                        System.out.println("[1]EXIBIR TODOS \n[2]FAZER UMA PESQUISA \n[3]SAIR");
+                        opcao2 = scanner.nextInt();
+                        scanner.nextLine();
+                        if (Objects.equals(opcao2, 1)) {
+                            Usuario u = new Usuario();
 
-                    new UsuarioDAO().exibirTabela(u);
+                            new UsuarioDAO().exibirTabela(u);
+
+                        } else if (Objects.equals(opcao2, 2)) {
+                            Usuario u = new Usuario();
+
+                            System.out.println("[1]CPF \n[2]PLACA");
+                            int opcao22 = scanner.nextInt();
+                            scanner.nextLine();
+
+                            if (Objects.equals(opcao22, 1)) {
+                                u.setTrocar("cpf");
+                                System.out.println("QUAL O CPF");
+                                u.setMudar(scanner.nextLine());
+                            } else if (Objects.equals(opcao22, 2)) {
+                                    u.setTrocar("placa");
+                                    System.out.println("QUAL A PLACA");
+                                    u.setMudar(scanner.nextLine());
+                            }
+
+                            new UsuarioDAO().exibirUsuario(u);
+                        }
+                    }
                 }
             }
         }
