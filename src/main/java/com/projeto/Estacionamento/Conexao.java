@@ -3,7 +3,9 @@ package com.projeto.Estacionamento;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+/*
+ * Gerencia a conexão com o banco de dados MySQL.
+ */
 public class Conexao {
     private static Connection conn;
 
