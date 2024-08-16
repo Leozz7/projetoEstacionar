@@ -42,7 +42,7 @@ public class Main {
                     new UsuarioDAO().validarPlaca(u);
                 } catch (IllegalArgumentException e) {
                     System.out.println("Erro na validação: " + e.getMessage());
-                    continue; // Volta para o início do loop principal
+                    continue;
                 }
 
                 Date dataHora = new Date();
@@ -100,7 +100,6 @@ public class Main {
                             new UsuarioDAO().validarNome(u);
                         } catch (IllegalArgumentException e) {
                             System.out.println("Erro na validação: " + e.getMessage());
-                            continue;
                         }
                     } else if (opcao1 == 2) {
                         u.setTrocar("cpf");
@@ -110,7 +109,6 @@ public class Main {
                             new UsuarioDAO().validarCpf(u);
                         } catch (IllegalArgumentException e) {
                             System.out.println("Erro na validação: " + e.getMessage());
-                            continue;
                         }
                     } else if (opcao1 == 3) {
                         u.setTrocar("carro");
@@ -124,19 +122,18 @@ public class Main {
                             new UsuarioDAO().validarPlaca(u);
                         } catch (IllegalArgumentException e) {
                             System.out.println("Erro na validação: " + e.getMessage());
-                            continue;
                         }
                     }
                 }
             } else if (Objects.equals(opcao, 4)) {
-                // Exibir carros
+                // Mostrar carros
                 for (int opcao2 = 0; opcao2 != 3; ) {
                     System.out.println("[1]EXIBIR TODOS \n[2]FAZER UMA PESQUISA \n[3]SAIR");
                     opcao2 = scanner.nextInt();
                     scanner.nextLine();
 
                     if (Objects.equals(opcao2, 1)) {
-                        // Exibir todos os carros
+                        // Mostrar todos os carros
                         Usuario u = new Usuario();
                         new UsuarioDAO().exibirTabela(u);
                     } else if (Objects.equals(opcao2, 2)) {
