@@ -1,6 +1,8 @@
 package com.projeto.Estacionamento;
 
 import entity.Usuario;
+import org.jetbrains.annotations.NotNull;
+
 import java.sql.*;
 
 /*
@@ -32,17 +34,17 @@ public class UsuarioDAO {
     /*
     * Validar se oa dados inseridos pelo usuário estão nas normas.
      */
-    public void validarNome(Usuario u) {
+    public void validarNome(@NotNull Usuario u) {
         if (u.getNome() == null || u.getNome().isEmpty()) {
             throw new IllegalArgumentException("Nome não pode ser vazio \n");
         }
     }
-    public void validarCpf(Usuario u) {
+    public void validarCpf(@NotNull Usuario u) {
         if (u.getCpf() == null || u.getCpf().length() != 14) {
             throw new IllegalArgumentException("CPF deve ter o formato 000.000.000-00\n");
         }
     }
-    public void validarPlaca(Usuario u) {
+    public void validarPlaca(@NotNull Usuario u) {
         if (u.getPlaca() == null || !u.getPlaca().matches("[A-Z]{3}\\d{4}")) {
             throw new IllegalArgumentException("Placa deve ter o formato XXX0000 \n");
         }
@@ -50,7 +52,7 @@ public class UsuarioDAO {
     /*
      * Retira um carro do banco de dados com base na placa.
      */
-    public void retirarCarro(Usuario u) {
+    public void retirarCarro(@NotNull Usuario u) {
         String sql = "UPDATE carros SET saida = ? WHERE placa = ? AND saida IS NULL";
 
         try (Connection conn = Conexao.getConexao();
@@ -68,7 +70,7 @@ public class UsuarioDAO {
      * Altera um dado de um carro no banco de dados.
      */
 
-    public void alterarDado(Usuario u) {
+    public void alterarDado(@NotNull Usuario u) {
         String sql = "UPDATE carros SET " + u.getTrocar() + " = ? WHERE cpf = ?";
 
         try (Connection conn = Conexao.getConexao();
@@ -110,7 +112,7 @@ public class UsuarioDAO {
     /*
      * Exibe um carro específico com base no CPF ou placa.
      */
-    public void exibirUsuario(Usuario u) {
+    public void exibirUsuario(@NotNull Usuario u) {
         String sql = "SELECT * FROM CARROS WHERE " + u.getTrocar() + " = ?" ;
 
         try (Connection conn = Conexao.getConexao();
